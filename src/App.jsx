@@ -1365,7 +1365,7 @@ export default function App() {
     const count = selectedDeleteIds.length;
     setSelectedDeleteIds([]);
     setIsDeleteMode(false);
-    showFeedback('일정이 삭제되었어요.'); // 담백한 어휘 적용
+    showFeedback(`${count}개 아이템을 옷장에서 삭제했어요.`);
   };
 
   const resetModal = () => {
