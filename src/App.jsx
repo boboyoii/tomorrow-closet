@@ -2008,21 +2008,22 @@ export default function App() {
               </div>
             </div>
 
-            {/* 다중 선택 일괄 삭제용 슬림 바 (플로팅 알약 스타일) */}
+            {/* 다중 선택 일괄 삭제 상태 패널 */}
             {isDeleteMode && (
-              <div className="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-40 bg-zinc-900/95 backdrop-blur-lg border border-white/10 p-3.5 px-5 rounded-full flex items-center gap-6 text-white shadow-2xl animate-fadeIn w-max">
-                <div className="text-xs font-semibold">
-                  <span>선택된 의상 : </span>
-                  <span className="font-extrabold text-sm text-red-400">
+              <div className="rounded-2xl border border-red-200 bg-red-50/70 px-5 py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between animate-fadeIn">
+                <div className="text-xs font-bold text-red-700">
+                  <span>선택된 의상 · </span>
+                  <span className="font-extrabold text-base">
                     {selectedDeleteIds.length}
                   </span>
                   개
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 sm:justify-end">
                   <button
                     type="button"
                     onClick={() => setSelectedDeleteIds([])}
-                    className="px-3 py-1.5 bg-zinc-800 text-zinc-300 rounded-full text-[10px] font-bold hover:bg-zinc-700 transition"
+                    disabled={selectedDeleteIds.length === 0}
+                    className="flex-1 sm:flex-none px-4 py-2.5 bg-white text-zinc-600 border border-zinc-200 rounded-xl text-[10px] font-bold hover:bg-zinc-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     전체 해제
                   </button>
@@ -2030,13 +2031,13 @@ export default function App() {
                     type="button"
                     onClick={handleBulkDelete}
                     disabled={selectedDeleteIds.length === 0}
-                    className={`px-4 py-1.5 rounded-full text-[10px] font-bold transition ${
+                    className={`flex-[1.5] sm:flex-none px-5 py-2.5 rounded-xl text-[10px] font-bold transition ${
                       selectedDeleteIds.length > 0
-                        ? 'bg-red-600 text-white hover:bg-red-700 active:scale-95 shadow-lg'
-                        : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
+                        ? 'bg-red-600 text-white hover:bg-red-700 active:scale-95 shadow-sm'
+                        : 'bg-zinc-200 text-zinc-400 cursor-not-allowed'
                     }`}
                   >
-                    선택 삭제하기
+                    선택한 항목 삭제하기
                   </button>
                 </div>
               </div>
