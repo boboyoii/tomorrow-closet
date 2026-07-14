@@ -2012,7 +2012,7 @@ export default function App() {
             {isDeleteMode && (
               <div className="rounded-2xl border border-red-200 bg-red-50/70 px-5 py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between animate-fadeIn">
                 <div className="text-xs font-bold text-red-700">
-                  <span>선택된 의상 · </span>
+                  <span>선택한 의상 </span>
                   <span className="font-extrabold text-base">
                     {selectedDeleteIds.length}
                   </span>
